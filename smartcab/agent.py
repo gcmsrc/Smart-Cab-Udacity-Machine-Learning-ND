@@ -48,10 +48,15 @@ class LearningAgent(Agent):
         if testing:
             self.epsilon = 0
             self.alpha = 0
+        
         else:
+
+            # Linearly decaying function
+            #self.epsilon += -0.05
 
             # Decaying exploration factor
             self.epsilon = math.exp(-0.001 * self.t)
+            
 
             # Increment t
             self.t += 1
@@ -217,7 +222,7 @@ def run():
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=100)
+    sim.run(n_test=10)
 
 
 if __name__ == '__main__':
